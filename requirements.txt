@@ -1,1 +1,10 @@
+# Requirements for the first project
 requests
+
+# Requirements for the second project
+pypdf
+python-docx
+sentence-transformers
+faiss-cpu
+numpy
+tqdm
