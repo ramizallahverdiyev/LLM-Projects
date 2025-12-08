@@ -1,0 +1,29 @@
+# Python bytecode and cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+.python-version
+
+# Build / packaging artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# IDE / editor / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
+
+# Project data and generated artifacts
+2. Mini RAG/embeddings/
+2. Mini RAG/data/processed/
