@@ -1,5 +1,3 @@
-# src/vectordb.py
-
 import faiss
 import numpy as np
 import pickle

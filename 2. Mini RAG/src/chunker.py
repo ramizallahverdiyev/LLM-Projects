@@ -7,7 +7,7 @@ def chunk_text(text: str, chunk_size=500, overlap=100):
         end = start + chunk_size
         chunk = " ".join(words[start:end])
         chunks.append(chunk)
-        start = end - overlap  # overlap tətbiqi
+        start = end - overlap  # overlapping
 
         if start < 0:
             start = 0
