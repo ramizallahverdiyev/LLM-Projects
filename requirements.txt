@@ -8,3 +8,6 @@ sentence-transformers
 faiss-cpu
 numpy
 tqdm
+
+# Requirements for the third project
+# No additional requirements needed
