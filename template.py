@@ -30,6 +30,37 @@ import os
 # }
 
 
+
+# TEMPLATE FOR FOURTH PROJECT STRUCTURE
+# PROJECT_NAME = "4. FAISS Vector Search"
+
+# STRUCTURE = {
+#     "data/raw": [
+#         "sentences.txt",
+#     ],
+#     "data/processed": [
+#         "embeddings.npy",
+#     ],
+#     "src": [
+#         "__init__.py",
+#         "data_loader.py",
+#         "embedding.py",
+#         "indexer.py",
+#         "search.py",
+#         "utils.py",
+#     ],
+#     "experiments": [
+#         "manual_similarity_check.py",
+#     ],
+#     "notes": [
+#         "observations.md",
+#     ],
+#     "": [
+#         "main.py",
+#         "README.md",
+#     ],
+# }
+
 # def create_structure(base_path: str):
 #     for folder, files in STRUCTURE.items():
 #         folder_path = os.path.join(base_path, folder)
