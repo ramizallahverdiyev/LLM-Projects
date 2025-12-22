@@ -11,3 +11,6 @@ tqdm
 
 # Requirements for the third project
 # No additional requirements needed
+
+# Requirements for the fourth project
+# No additional requirements needed
