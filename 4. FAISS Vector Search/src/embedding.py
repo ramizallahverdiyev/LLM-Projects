@@ -98,7 +98,11 @@ def get_or_create_embeddings(
     if cache_path and (not force_recompute):
         path = Path(cache_path)
         if path.exists():
-            return load_embeddings(cache_path)
+            try:
+                return load_embeddings(cache_path)
+            except Exception:
+                print("Cached embeddings are corrupted. Recomputing...")
+
 
     embeddings = generate_embeddings(sentences, config)
 

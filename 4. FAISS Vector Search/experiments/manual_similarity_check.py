@@ -1,11 +1,12 @@
+from pathlib import Path
 import numpy as np
-
 from src.data_loader import load_sentences
 from src.embedding import (
     EmbeddingConfig,
     get_or_create_embeddings,
 )
 
+BASE_DIR = Path(__file__).resolve().parents[1]
 
 def cosine_similarity(a: np.ndarray, b: np.ndarray) -> float:
     """
