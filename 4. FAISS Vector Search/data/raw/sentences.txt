@@ -1,0 +1,238 @@
+Machine learning models learn patterns from historical data.
+Supervised learning requires labeled training examples.
+Unsupervised learning discovers hidden structures in datasets.
+Feature engineering plays a critical role in model performance.
+Data preprocessing improves the quality of machine learning results.
+Overfitting occurs when a model memorizes training data.
+Underfitting happens when a model is too simple.
+Cross validation helps estimate model generalization.
+Hyperparameter tuning can significantly boost accuracy.
+Linear regression models numerical relationships.
+Logistic regression is used for classification tasks.
+Decision trees split data based on feature conditions.
+Random forests reduce variance by averaging trees.
+Gradient boosting builds models sequentially.
+XGBoost is optimized for performance and speed.
+Neural networks consist of layers of connected neurons.
+Activation functions introduce nonlinearity.
+ReLU is commonly used in deep learning.
+Loss functions measure prediction errors.
+Backpropagation updates neural network weights.
+Stochastic gradient descent optimizes loss functions.
+Learning rate controls update step size.
+Batch size affects training stability.
+Epochs represent full passes over the dataset.
+Normalization scales numerical features.
+Standardization centers data around zero.
+Outliers can distort statistical models.
+Exploratory data analysis reveals data patterns.
+Correlation does not imply causation.
+Dimensionality reduction simplifies datasets.
+Principal component analysis reduces feature space.
+Clustering groups similar data points.
+K means clustering partitions data into clusters.
+Silhouette score evaluates clustering quality.
+Anomaly detection identifies unusual patterns.
+Time series data contains temporal dependencies.
+ARIMA models forecast time dependent data.
+LSTM networks handle sequential information.
+Data leakage leads to misleading evaluation.
+Train test split separates evaluation data.
+Imbalanced datasets require special handling.
+Precision measures correctness of positive predictions.
+Recall measures coverage of actual positives.
+F1 score balances precision and recall.
+ROC curves visualize classifier performance.
+AUC summarizes classification quality.
+Model interpretability increases trust.
+SHAP values explain model predictions.
+Feature importance ranks influential variables.
+Bias in data leads to unfair models.
+Ethical AI requires careful dataset design.
+Reproducibility is essential in data science.
+Pipelines ensure consistent preprocessing.
+Version control tracks experiment changes.
+Logging helps debug training issues.
+Experiment tracking improves research workflow.
+Model deployment requires monitoring.
+Concept drift occurs when data distribution changes.
+Retraining keeps models up to date.
+
+Natural language processing focuses on human language.
+Tokenization splits text into smaller units.
+Stop words are common words with little meaning.
+Stemming reduces words to root forms.
+Lemmatization considers grammatical structure.
+Bag of words ignores word order.
+TF IDF weighs terms by importance.
+Word embeddings capture semantic meaning.
+Word2Vec learns vector representations.
+GloVe uses global cooccurrence statistics.
+FastText handles subword information.
+Sentence embeddings represent full sentences.
+Transformer models process text in parallel.
+Attention mechanisms focus on relevant tokens.
+Self attention captures contextual relationships.
+BERT uses bidirectional context.
+GPT models generate fluent text.
+Token embeddings depend on vocabulary.
+Positional encoding preserves word order.
+Contextual embeddings change per sentence.
+Cosine similarity measures vector orientation.
+Semantic similarity compares meaning.
+Text similarity powers search systems.
+Named entity recognition extracts entities.
+Part of speech tagging labels grammar roles.
+Dependency parsing analyzes sentence structure.
+Text classification assigns categories.
+Sentiment analysis detects emotions.
+Topic modeling discovers themes.
+Latent Dirichlet allocation groups topics.
+Document similarity finds related texts.
+Query expansion improves search recall.
+Embedding quality affects downstream tasks.
+Long texts require chunking.
+Chunk overlap preserves context.
+Mean pooling aggregates token vectors.
+Max pooling captures strong signals.
+CLS token represents sequence meaning.
+Normalization improves similarity metrics.
+Embedding dimension affects accuracy.
+High dimensional vectors are sparse.
+Curse of dimensionality complicates distance.
+Semantic drift affects embeddings.
+Fine tuning adapts language models.
+Domain specific embeddings improve results.
+Pretrained models save time.
+Inference latency matters in production.
+Batch inference improves throughput.
+Caching embeddings reduces computation.
+Multilingual models support many languages.
+Cross lingual embeddings align languages.
+Zero shot learning generalizes tasks.
+Prompt engineering guides model behavior.
+Evaluation requires benchmark datasets.
+BLEU scores evaluate translation.
+ROUGE scores summarize text similarity.
+Hallucinations produce incorrect facts.
+Grounding improves factual accuracy.
+
+Vector search retrieves similar embeddings.
+Similarity search scales poorly without indexing.
+Brute force search compares all vectors.
+Approximate search trades accuracy for speed.
+FAISS enables efficient similarity search.
+Indexes accelerate nearest neighbor queries.
+IndexFlat performs exact search.
+IVF partitions vector space into clusters.
+HNSW builds graph based indexes.
+Distance metrics define similarity.
+L2 distance measures euclidean space.
+Cosine distance measures angular difference.
+Normalized vectors simplify distance computation.
+KNN finds nearest neighbors.
+K value controls result count.
+Low K returns precise matches.
+High K increases recall.
+Search latency affects user experience.
+Index build time is a one time cost.
+Memory footprint limits scalability.
+GPU acceleration speeds up search.
+CPU search works for small datasets.
+Batch queries improve throughput.
+Metadata links vectors to text.
+Vector databases store embeddings.
+Pinecone offers managed vector search.
+Weaviate supports hybrid search.
+Milvus scales to billions of vectors.
+FAISS is library not a database.
+Index selection depends on dataset size.
+Exact search ensures correctness.
+Approximate search improves performance.
+Recall measures retrieval completeness.
+Precision measures relevance.
+Re ranking improves result ordering.
+Hybrid search combines keyword and vector search.
+BM25 handles lexical matching.
+Dense retrieval captures semantics.
+Sparse retrieval captures keywords.
+Embedding drift impacts retrieval quality.
+Updating indexes requires care.
+Delete operations are expensive.
+Cold start requires initial indexing.
+Search systems need monitoring.
+Logging query performance helps optimization.
+Cache popular queries.
+Shard indexes for scalability.
+Replication improves availability.
+Latency budgets define system design.
+Retrieval quality affects downstream LLMs.
+RAG systems depend on retrieval accuracy.
+Poor retrieval leads to hallucinations.
+Chunk size impacts retrieval granularity.
+Overlap increases recall.
+Index tuning improves results.
+Evaluation uses ground truth queries.
+Human evaluation checks relevance.
+
+Production systems require robustness.
+Monitoring detects system failures.
+Alerting ensures quick response.
+Logging enables debugging.
+Microservices isolate responsibilities.
+APIs expose system functionality.
+Latency affects user satisfaction.
+Scalability supports growth.
+Load balancing distributes traffic.
+Caching reduces repeated computation.
+Asynchronous processing improves throughput.
+Batch processing handles large workloads.
+Streaming systems process real time data.
+Data consistency matters in distributed systems.
+Fault tolerance prevents outages.
+Retries handle transient failures.
+Idempotency avoids duplicate effects.
+Security protects sensitive data.
+Authentication verifies identity.
+Authorization controls access.
+Encryption secures data in transit.
+Compliance follows regulations.
+Data privacy is critical.
+Versioning supports backward compatibility.
+Testing ensures correctness.
+Unit tests validate components.
+Integration tests validate workflows.
+CI pipelines automate testing.
+CD pipelines automate deployment.
+Rollback recovers from failures.
+Observability combines logs metrics and traces.
+SLOs define reliability targets.
+SLAs define user guarantees.
+Cost optimization reduces cloud expenses.
+Autoscaling adapts to demand.
+Infrastructure as code improves reproducibility.
+Containers isolate environments.
+Docker packages applications.
+Kubernetes orchestrates containers.
+Resource limits prevent abuse.
+Memory leaks degrade performance.
+Profiling identifies bottlenecks.
+Code reviews improve quality.
+Documentation aids maintainability.
+Technical debt slows development.
+Refactoring improves design.
+Design patterns guide architecture.
+Clean code improves readability.
+Separation of concerns reduces coupling.
+Abstractions simplify complexity.
+Loose coupling improves flexibility.
+High cohesion improves clarity.
+Senior engineers think in systems.
+Junior engineers focus on code.
+Tradeoffs exist in every decision.
+There is no perfect architecture.
+Simple solutions scale better.
+Complexity should be justified.
+Engineering is about constraints.
+Good systems fail gracefully.
+Great systems recover quickly.
