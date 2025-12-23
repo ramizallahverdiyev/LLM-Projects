@@ -61,17 +61,65 @@ import os
 #     ],
 # }
 
+
+# TEMPLATE FOR FIFTH PROJECT STRUCTURE
+# PROJECT_NAME = "5.IMDB Sentiment Analysis"
+# STRUCTURE = {
+#     "": [
+#         "README.md",
+#         "requirements.txt",
+#         ".gitignore",
+#     ],
+#     "data/raw": [
+#         "imdb_hf_cache/",
+#     ],
+#     "data/processed": [],
+#     "notebooks": [
+#         "01_data_exploration.ipynb",
+#         "02_error_analysis.ipynb",
+#     ],
+#     "src": [
+#         "__init__.py",
+#         "data_loader.py",
+#         "preprocessing.py",
+#         "evaluation.py",
+#         "inference.py",
+#         "baseline/__init__.py",
+#         "baseline/train_baseline.py",
+#         "baseline/evaluate_baseline.py",
+#         "transformer/__init__.py",
+#         "transformer/train_transformer.py",
+#         "transformer/evaluate_transformer.py",
+#     ],
+#     "models": [
+#         "baseline/vectorizer.pkl",
+#         "baseline/classifier.pkl",
+#         "transformer/imdb_sentiment_model/",
+#     ],
+#     "scripts": [
+#         "run_baseline.py",
+#         "run_transformer.py",
+#     ],
+# }
+
+
 # def create_structure(base_path: str):
 #     for folder, files in STRUCTURE.items():
 #         folder_path = os.path.join(base_path, folder)
-#         if folder:
-#             os.makedirs(folder_path, exist_ok=True)
+#         os.makedirs(folder_path, exist_ok=True)
 
-#         for file in files:
-#             file_path = os.path.join(folder_path, file)
-#             if not os.path.exists(file_path):
-#                 with open(file_path, "w", encoding="utf-8") as f:
-#                     pass
+#         for item in files:
+#             item_path = os.path.join(folder_path, item)
+
+#             # Eğer bu bir klasörse
+#             if item.endswith("/"):
+#                 os.makedirs(item_path, exist_ok=True)
+#             else:
+#                 os.makedirs(os.path.dirname(item_path), exist_ok=True)
+
+#                 if not os.path.exists(item_path):
+#                     with open(item_path, "w", encoding="utf-8"):
+#                         pass
 
 
 # if __name__ == "__main__":
