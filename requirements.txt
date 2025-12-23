@@ -14,3 +14,6 @@ tqdm
 
 # Requirements for the fourth project
 # No additional requirements needed
+
+# Requirements for the fifth project
+datasets
