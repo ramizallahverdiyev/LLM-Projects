@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "imdb-sentiment-analysis"
+version = "0.1.0"
+description = "IMDb sentiment analysis with baseline ML and transformer models"
+authors = [
+    { name = "Ramiz" }
+]
+requires-python = ">=3.9"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["5_imdb_sentiment_analysis*"]

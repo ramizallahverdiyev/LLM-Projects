@@ -60,7 +60,7 @@ def evaluate_transformer():
             truncation=True,
             padding=True,
             max_length=256,
-            return_tensors="torch"
+            return_tensors="pt"
         )
 
         with torch.no_grad():

@@ -25,3 +25,5 @@ Thumbs.db
 *.log
 
 # Project data and generated artifacts
+raw/
+imdb_sentiment_model/
