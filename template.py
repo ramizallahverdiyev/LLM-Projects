@@ -111,7 +111,6 @@ import os
 #         for item in files:
 #             item_path = os.path.join(folder_path, item)
 
-#             # Eğer bu bir klasörse
 #             if item.endswith("/"):
 #                 os.makedirs(item_path, exist_ok=True)
 #             else:
