@@ -108,9 +108,7 @@ import os
 # STRUCTURE = {
 #     "data": [
 #         "queries.json",
-#     ],
-#     "data/documents": [
-#         # Raw documents (PDF, TXT, JSON)
+#         "documents.json",
 #     ],
 
 #     "src": [

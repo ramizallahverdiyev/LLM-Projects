@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "title": "Baku State University (BDU)",
+    "text": "Baku State University (BDU) is the oldest and most internationally recognized university in Azerbaijan. Ranked around 688th globally in the QS World University Rankings, BDU offers a comprehensive range of undergraduate and graduate programs in sciences, social sciences, and humanities. Its research centers focus on physics, chemistry, mathematics, and linguistics. Students have access to international exchange programs, research internships, and collaborations with European universities. The campus in Baku provides modern laboratories, libraries, and cultural facilities. BDU emphasizes both theoretical knowledge and practical skills to prepare graduates for national and global careers."
+  },
+  {
+    "id": 2,
+    "title": "Azerbaijan State University of Economics (UNEC)",
+    "text": "Azerbaijan State University of Economics (UNEC) specializes in economics, finance, and business education. Ranked in QS global lists, UNEC offers programs in international economics, accounting, marketing, and management. Graduate programs include research in financial technology, sustainable development, and business analytics. The university organizes workshops, student-led consulting projects, and internships with leading Azerbaijani and multinational companies. UNEC is located in Baku, featuring modern classrooms, trading simulation labs, and an extensive library. Its faculty includes internationally trained economists and business scholars who publish in top journals."
+  },
+  {
+    "id": 3,
+    "title": "Azerbaijan State University of Oil and Industry (ADNSU)",
+    "text": "ADNSU is internationally recognized for engineering and petroleum programs. It ranks highly in specialized QS engineering and energy subject rankings. The university offers degrees in chemical engineering, petroleum engineering, energy systems, and industrial technologies. Research centers focus on sustainable energy, oil recovery techniques, and industrial automation. Students participate in laboratory-based projects, industry internships, and national and international engineering competitions. Located in Baku, ADNSU combines technical expertise with practical training to prepare engineers for global energy sectors."
+  },
+  {
+    "id": 4,
+    "title": "Azerbaijan Technical University (AzTU)",
+    "text": "Azerbaijan Technical University (AzTU) provides comprehensive programs in engineering, IT, and applied sciences. Included in QS 2026 rankings, it focuses on mechanical, civil, electrical, and computer engineering. The university emphasizes applied research, industry partnerships, and student-led innovation projects. Labs in robotics, AI, and material sciences are available for hands-on experience. Located in Baku, AzTU has collaborations with local and international tech companies to facilitate internships and practical learning."
+  },
+  {
+    "id": 5,
+    "title": "Baku Engineering University (BMU)",
+    "text": "Baku Engineering University (BMU) is an emerging technical institution ranked among the world’s top ~900–950. It offers programs in engineering, applied computer science, and technology management. BMU emphasizes practical projects, research in AI and robotics, and partnerships with industrial companies. Students are encouraged to participate in national hackathons, internships, and collaborative research programs. The university campus includes modern labs, simulation rooms, and technology incubators."
+  },
+  {
+    "id": 6,
+    "title": "Khazar University",
+    "text": "Khazar University is a private research-focused institution with QS ranking around 951–1000. It offers undergraduate and graduate programs in computer science, AI, robotics, and engineering. Research areas include neural networks, natural language processing, and sustainable technologies. Khazar University encourages student innovation through labs, start-up incubators, and international exchange programs. The university campus in Baku provides modern facilities, seminar rooms, and collaborative project spaces."
+  },
+  {
+    "id": 7,
+    "title": "ADA University",
+    "text": "ADA University is internationally oriented and included in QS 2026 global rankings (~1201–1400). It specializes in business, technology, public policy, and international relations. ADA University emphasizes entrepreneurship, global collaboration, and research-based learning. Students have access to international exchange programs, case study competitions, and tech innovation labs. Located in Baku, the university integrates practical experience with academic research to prepare graduates for international careers."
+  },
+  {
+    "id": 8,
+    "title": "Azerbaijan Medical University",
+    "text": "Azerbaijan Medical University is the leading medical institution in Azerbaijan. While not consistently ranked internationally, it is widely recognized nationally for its medical education and research. Programs include medicine, pharmacy, public health, and nursing. Students participate in hospital rotations, clinical internships, and medical research projects. The university promotes biomedical research, clinical trials, and healthcare innovation. Located in Baku, it offers modern laboratories, simulation clinics, and libraries specialized in health sciences."
+  },
+  {
+    "id": 9,
+    "title": "Azerbaijan University of Languages (ADU)",
+    "text": "ADU specializes in humanities and language studies, ranked internationally in QS subject rankings for modern languages. Offers undergraduate and graduate programs in translation, linguistics, international studies, and intercultural communication. The university promotes multilingual education, research in language technology, and student exchange programs. Located in Baku, ADU hosts conferences, workshops, and research labs focused on modern language studies and applied linguistics."
+  },
+  {
+    "id": 10,
+    "title": "Sumgait State University (SDU)",
+    "text": "Sumgait State University represents higher education outside Baku and is included in QS 2026 ranking range. It offers programs in sciences, engineering, and social sciences. The university emphasizes regional development, applied research, and student engagement in community projects. Students have access to laboratories, research centers, and collaboration opportunities with local industries. Located in Sumgait, SDU provides modern facilities and practical learning experiences for its students."
+  }
+]
