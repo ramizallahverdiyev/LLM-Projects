@@ -17,3 +17,6 @@ tqdm
 
 # Requirements for the fifth project
 datasets
+
+# Requirements for the sixth project
+hf_xet
