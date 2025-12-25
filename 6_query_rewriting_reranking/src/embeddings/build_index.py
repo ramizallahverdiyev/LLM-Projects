@@ -6,7 +6,7 @@ import numpy as np
 import os
 
 class FAISSRetriever:
-    def __init__(self, model_name="all-MiniLM-L6-v2", index_path="index_ivf.faiss", nlist=100, device=None):
+    def __init__(self, model_name="all-MiniLM-L6-v2", index_path="index_ivf.faiss", nlist=3, device=None):
         """
         FAISS IVF + Flat retriever.
         nlist: number of clusters for IVF
@@ -48,7 +48,7 @@ class FAISSRetriever:
         Note: query is already embedded outside for flexibility.
         """
         index = faiss.read_index(self.index_path)
-        index.nprobe = min(10, self.nlist)  # number of clusters to search
+        index.nprobe = min(3, self.nlist)  # number of clusters to search
         distances, indices = index.search(query_embedding, top_k)
         results = [self.documents[idx] for idx in indices[0]]
         return results
