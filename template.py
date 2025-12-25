@@ -102,6 +102,60 @@ import os
 #     ],
 # }
 
+# TEMPLATE FOR SIXTH PROJECT STRUCTURE
+# PROJECT_NAME = "6_query_rewriting_reranking"
+
+# STRUCTURE = {
+#     "data": [
+#         "queries.json",
+#     ],
+#     "data/documents": [
+#         # Raw documents (PDF, TXT, JSON)
+#     ],
+
+#     "src": [
+#         "__init__.py",
+#     ],
+
+#     "src/embeddings": [
+#         "__init__.py",
+#         "build_index.py",
+#     ],
+#     "src/embeddings/index_files": [
+#         # FAISS index files
+#     ],
+
+#     "src/query_rewriting": [
+#         "__init__.py",
+#         "hyde_rewriter.py",
+#     ],
+
+#     "src/reranking": [
+#         "__init__.py",
+#         "bge_reranker.py",
+#     ],
+
+#     "src/context_selection": [
+#         "__init__.py",
+#         "select_context.py",
+#     ],
+
+#     "src/utils": [
+#         "__init__.py",
+#         "preprocessing.py",
+#         "metrics.py",
+#     ],
+
+#     "tests": [
+#         "test_pipeline.py",
+#     ],
+
+#     "": [
+#         "main.py",
+#         "requirements.txt",
+#         "README.md",
+#     ],
+# }
 
 # def create_structure(base_path: str):
 #     for folder, files in STRUCTURE.items():
