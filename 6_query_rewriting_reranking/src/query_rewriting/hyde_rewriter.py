@@ -11,26 +11,19 @@ class HyDERewriter:
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
         self.model = AutoModelForCausalLM.from_pretrained(model_name).to(self.device)
 
-    def rewrite(self, query, max_length=100):
+    def rewrite(self, query, max_length=150, temperature=0.7, num_return_sequences=1):
         """
-        Generates a synthetic query/hypothetical document from the input query.
+        Generates a synthetic query / hypothetical document from the input query.
         """
         input_ids = self.tokenizer.encode(query, return_tensors="pt").to(self.device)
         with torch.no_grad():
             output_ids = self.model.generate(
                 input_ids,
                 max_length=max_length,
-                num_return_sequences=1,
+                num_return_sequences=num_return_sequences,
                 do_sample=True,
-                temperature=0.7
+                temperature=temperature,
+                top_p=0.9
             )
-        rewritten_query = self.tokenizer.decode(output_ids[0], skip_special_tokens=True)
-        return rewritten_query
-
-
-if __name__ == "__main__":
-    rewriter = HyDERewriter()
-    query = "Top AI universities in Azerbaijan"
-    rewritten = rewriter.rewrite(query)
-    print("Original Query:", query)
-    print("Rewritten Query:", rewritten)
+        rewritten = self.tokenizer.decode(output_ids[0], skip_special_tokens=True)
+        return rewritten
