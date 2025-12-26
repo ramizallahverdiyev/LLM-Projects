@@ -20,3 +20,6 @@ datasets
 
 # Requirements for the sixth project
 hf_xet
+
+# Requirements for the seventh project
+ollama
