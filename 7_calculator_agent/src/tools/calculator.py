@@ -15,19 +15,9 @@ OPERATORS = {
     ast.UAdd: operator.pos,
 }
 
-# Allowed functions from math module
 ALLOWED_FUNCS = {name: getattr(math, name) for name in dir(math) if not name.startswith("_")}
 
 def evaluate_expression(expr: str) -> Dict[str, Union[float, str]]:
-    """
-    Safely evaluate a more advanced arithmetic expression using math functions.
-
-    Parameters:
-        expr (str): The arithmetic expression, e.g., "sqrt(16) + 2 ** 3"
-
-    Returns:
-        dict: {"result": value} on success, {"error": message} on failure
-    """
     try:
         node = ast.parse(expr, mode='eval').body
         result = _eval(node)
@@ -36,23 +26,19 @@ def evaluate_expression(expr: str) -> Dict[str, Union[float, str]]:
         return {"error": str(e)}
 
 def _eval(node) -> float:
-    """Recursively evaluate AST nodes with support for operators and math functions."""
-    if isinstance(node, ast.Num):  # <number>
-        return node.n
-    elif isinstance(node, ast.BinOp):  # <left> <operator> <right>
+    if isinstance(node, ast.Constant):
+        return node.value
+    elif isinstance(node, ast.BinOp):
         op_type = type(node.op)
         if op_type not in OPERATORS:
             raise ValueError(f"Unsupported operator: {op_type}")
-        left = _eval(node.left)
-        right = _eval(node.right)
-        return OPERATORS[op_type](left, right)
-    elif isinstance(node, ast.UnaryOp):  # - <operand> or + <operand>
+        return OPERATORS[op_type](_eval(node.left), _eval(node.right))
+    elif isinstance(node, ast.UnaryOp):
         op_type = type(node.op)
         if op_type not in OPERATORS:
             raise ValueError(f"Unsupported unary operator: {op_type}")
-        operand = _eval(node.operand)
-        return OPERATORS[op_type](operand)
-    elif isinstance(node, ast.Call):  # function calls
+        return OPERATORS[op_type](_eval(node.operand))
+    elif isinstance(node, ast.Call):
         if not isinstance(node.func, ast.Name):
             raise TypeError("Only simple function calls allowed")
         func_name = node.func.id
@@ -61,7 +47,5 @@ def _eval(node) -> float:
         func = ALLOWED_FUNCS[func_name]
         args = [_eval(arg) for arg in node.args]
         return func(*args)
-    elif isinstance(node, ast.Expr):
-        return _eval(node.value)
     else:
         raise TypeError(f"Unsupported expression: {node}")
