@@ -1,5 +1,3 @@
-# src/intent_detector.py
-
 import json
 import re
 from pathlib import Path
