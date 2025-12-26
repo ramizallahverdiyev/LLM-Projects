@@ -155,26 +155,55 @@ import os
 #     ],
 # }
 
-# def create_structure(base_path: str):
-#     for folder, files in STRUCTURE.items():
-#         folder_path = os.path.join(base_path, folder)
-#         os.makedirs(folder_path, exist_ok=True)
+# TEMPLATE FOR SEVENTH PROJECT STRUCTURE
+PROJECT_NAME = "7_calculator_agent"
 
-#         for item in files:
-#             item_path = os.path.join(folder_path, item)
+STRUCTURE = {
+    "": [
+        "README.md",      # Project overview and documentation
+        "main.py",        # Main entry point for the agent
+    ],
+    "src": [
+        "agent.py",           # LLM controller
+        "intent_detector.py", # Decide if tool needed
+        "interpreter.py",     # Tool output → human-readable
+        
+    ],
+    
+    "src/tools": [
+        "calculator.py",     # Calculator tool implementation
+    ],
+    "prompts": [
+        "intent_prompt.txt",      # Prompt for intent detection
+        "interpret_prompt.txt",   # Prompt for interpreting tool output
+    ],
+    "tests": [
+        "test_calculator.py",     # Tests for the calculator tool
+        "test_intent.py",         # Tests for the intent detection
+        "test_agent.py",          # Tests for the agent
+    ],
+}
 
-#             if item.endswith("/"):
-#                 os.makedirs(item_path, exist_ok=True)
-#             else:
-#                 os.makedirs(os.path.dirname(item_path), exist_ok=True)
+def create_structure(base_path: str):
+    for folder, files in STRUCTURE.items():
+        folder_path = os.path.join(base_path, folder)
+        os.makedirs(folder_path, exist_ok=True)
 
-#                 if not os.path.exists(item_path):
-#                     with open(item_path, "w", encoding="utf-8"):
-#                         pass
+        for item in files:
+            item_path = os.path.join(folder_path, item)
+
+            if item.endswith("/"):
+                os.makedirs(item_path, exist_ok=True)
+            else:
+                os.makedirs(os.path.dirname(item_path), exist_ok=True)
+
+                if not os.path.exists(item_path):
+                    with open(item_path, "w", encoding="utf-8"):
+                        pass
 
 
-# if __name__ == "__main__":
-#     base_dir = os.path.join(os.getcwd(), PROJECT_NAME)
-#     os.makedirs(base_dir, exist_ok=True)
-#     create_structure(base_dir)
-#     print(f"Project structure created at: {base_dir}")
+if __name__ == "__main__":
+    base_dir = os.path.join(os.getcwd(), PROJECT_NAME)
+    os.makedirs(base_dir, exist_ok=True)
+    create_structure(base_dir)
+    print(f"Project structure created at: {base_dir}")
