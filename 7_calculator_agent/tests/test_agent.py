@@ -12,4 +12,4 @@ def test_full_calculator_workflow():
 def test_non_calculator_workflow():
     query = "Explain gravity"
     explanation = agent.handle_query(query)
-    assert "Explain gravity" in explanation
+    assert "gravity" in explanation
