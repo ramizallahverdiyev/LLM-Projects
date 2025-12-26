@@ -58,9 +58,7 @@ Interpreter     Calculator Tool
 │   │   interpreter.py
 │   │
 │   ├───tools
-│   │       calculator.py
-│   │
-│   └───__pycache__
+│   │      calculator.py
 │
 ├───tests
 │       test_agent.py
