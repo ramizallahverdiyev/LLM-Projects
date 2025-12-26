@@ -1,5 +1,3 @@
-# tests/test_calculator.py
-
 import pytest
 from src.tools.calculator import evaluate_expression
 import math
