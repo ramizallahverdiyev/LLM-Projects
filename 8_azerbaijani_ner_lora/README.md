@@ -287,3 +287,25 @@ The project uses a custom dataset for Azerbaijani Named Entity Recognition.
 *   **Format:** The datasets are expected to be in a format suitable for NER tasks, likely tokenized text and corresponding NER tags. (Further details on expected format can be added here if known, e.g., "CoNLL-2003 format" or "CSV with 'tokens' and 'ner_tags' columns").
 *   **Preprocessing:** The `src/data/preprocessing.py` script is responsible for converting raw data into a format usable by the model, including tokenization and alignment of labels. The `src/data/dataset_loader.py` handles loading these datasets.
 *   **Processed Data:** Processed and split datasets are stored in `data/processed/` and `data/splits/` respectively.
+
+
+## Dataset & Attribution
+
+This project uses the **LocalDoc** dataset provided by its original author.
+
+* **Dataset name:** LocalDoc
+* **Author:** LocalDoc
+* **Source:** [https://huggingface.co/datasets/LocalDoc](https://huggingface.co/datasets/LocalDoc)
+* **License:** Creative Commons Attribution–NonCommercial–NoDerivatives 4.0 International (CC BY-NC-ND 4.0)
+  [https://creativecommons.org/licenses/by-nc-nd/4.0/](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+### License Notice
+
+* This repository **does not redistribute** the dataset or any modified versions of it.
+* The project is intended for **non-commercial** and **educational/research** purposes only.
+* All rights to the dataset belong to the **original author**.
+
+### Dataset Contact
+
+For questions or permissions regarding the dataset, please contact the original author:
+📧 [v.resad.89@gmail.com](mailto:v.resad.89@gmail.com)
