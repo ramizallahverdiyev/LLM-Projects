@@ -1,54 +1,31 @@
 from transformers import AutoTokenizer
-from datasets import Dataset, DatasetDict
 
-def get_tokenizer(model_name: str = "xlm-roberta-base"):
+def get_tokenizer(model_name: str):
     """
-    Initialize and return the tokenizer for the base model.
+    Load the tokenizer for the specified model.
     """
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     return tokenizer
 
-def tokenize_and_align_labels(dataset: DatasetDict, tokenizer, label_all_tokens: bool = True):
-    """
-    Tokenize the dataset and align NER labels with subword tokens.
-    """
-    def tokenize_example(example):
-        tokenized_inputs = tokenizer(
-            example["tokens"],
-            is_split_into_words=True,
-            truncation=True,
-            max_length=512
-        )
-        labels = []
-        word_ids = tokenized_inputs.word_ids(batch_index=0)
-        for i, word_idx in enumerate(word_ids):
+def tokenize_and_align_labels(examples, tokenizer):
+    tokenized_inputs = tokenizer(examples["tokens"], truncation=True, is_split_into_words=True)
+
+    labels = []
+    for i, label in enumerate(examples["ner_tags"]):
+        word_ids = tokenized_inputs.word_ids(batch_index=i)
+        previous_word_idx = None
+        label_ids = []
+        for word_idx in word_ids:
             if word_idx is None:
-                labels.append(-100)
+                label_ids.append(-100)
+            elif word_idx != previous_word_idx:
+                label_ids.append(label[word_idx])
             else:
-                label = example["ner_tags"][word_idx]
-                # If a word is split into multiple tokens
-                if i != 0 and not label_all_tokens:
-                    labels.append(-100)
-                else:
-                    labels.append(label)
-        tokenized_inputs["labels"] = labels
-        return tokenized_inputs
+                label_ids.append(-100)
+            previous_word_idx = word_idx
+        labels.append(label_ids)
 
-    tokenized_dataset = {}
-    for split in dataset.keys():
-        tokenized_dataset[split] = dataset[split].map(tokenize_example, remove_columns=["tokens", "ner_tags"])
-
-    return DatasetDict(tokenized_dataset)
-
-if __name__ == "__main__":
-    from src.data.dataset_loader import load_hf_dataset, split_dataset
-
-    # Load & split
-    ds = load_hf_dataset()
-    dataset = split_dataset(ds)
-
-    tokenizer = get_tokenizer()
-
-    # Tokenize & align labels
-    tokenized_dataset = tokenize_and_align_labels(dataset, tokenizer)
-    print(tokenized_dataset)
+    tokenized_inputs["labels"] = labels
+    # Remove the original tokens column
+    del examples["tokens"]
+    return tokenized_inputs

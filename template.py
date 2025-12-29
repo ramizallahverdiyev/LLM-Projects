@@ -192,6 +192,7 @@ STRUCTURE = {
     "": [
         "README.md",             # Project overview and documentation
         "requirements.txt",      # Required libraries
+        "main.py"
     ],
     "configs": [
         "model_config.yaml",     # Base model + LoRA params

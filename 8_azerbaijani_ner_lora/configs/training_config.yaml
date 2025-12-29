@@ -1,0 +1,24 @@
+# -----------------------------
+# Training & LoRA Configuration
+# -----------------------------
+output_dir: "experiments/run_001"
+batch_size: 8
+epochs: 3
+learning_rate: 0.00005
+lr_scheduler_type: "linear"
+seed: 42
+
+# -----------------------------
+# LoRA specific
+# -----------------------------
+lora_r: 8
+lora_alpha: 16
+lora_dropout: 0.1
+
+# -----------------------------
+# Dataset splitting
+# -----------------------------
+val_size: 0.1
+test_size: 0.1
+data_save_dir: "data/raw/"
+train_subset_size: 0.2

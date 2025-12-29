@@ -10,11 +10,12 @@ def train(
     tokenized_datasets,
     tokenizer,
     optimizer,
-    output_dir="experiments/run_001",
-    batch_size=8,
-    epochs=3,
+    id2label,
+    output_dir,
+    batch_size,
+    epochs,
+    lr_scheduler_type,
     device=None,
-    lr_scheduler_type="linear",
 ):
     """
     Train the model with tokenized datasets and LoRA applied.
@@ -23,7 +24,7 @@ def train(
     model.to(device)
 
     # Data collator
-    data_collator = DataCollatorForTokenClassification(tokenizer)
+    data_collator = DataCollatorForTokenClassification(tokenizer, padding=True, label_pad_token_id=-100)
 
     # DataLoaders
     train_loader = DataLoader(
@@ -83,8 +84,8 @@ def train(
                 filtered_pred, filtered_label = [], []
                 for p, l in zip(pred_seq, label_seq):
                     if l != -100:
-                        filtered_pred.append(p)
-                        filtered_label.append(l)
+                        filtered_pred.append(id2label[p])
+                        filtered_label.append(id2label[l])
                 all_predictions.append(filtered_pred)
                 all_labels.append(filtered_label)
 
@@ -101,27 +102,3 @@ def train(
             print(f"Best model saved to {save_path}")
 
     print("Training complete.")
-
-# =====================================
-# 2. Example usage
-# =====================================
-if __name__ == "__main__":
-    from src.data.preprocessing import get_tokenizer, tokenize_and_align_labels
-    from src.data.dataset_loader import load_hf_dataset, split_dataset
-    from src.model.model_builder import load_base_model, apply_lora, get_optimizer
-
-    # Load dataset and tokenizer
-    ds = load_hf_dataset()
-    dataset = split_dataset(ds)
-    tokenizer = get_tokenizer()
-
-    # Tokenize
-    tokenized_dataset = tokenize_and_align_labels(dataset, tokenizer)
-
-    # Load model + LoRA + optimizer
-    model = load_base_model()
-    model = apply_lora(model)
-    optimizer = get_optimizer(model)
-
-    # Train
-    train(model, tokenized_dataset, tokenizer, optimizer, batch_size=4, epochs=1)

@@ -27,3 +27,5 @@ Thumbs.db
 # Project data and generated artifacts
 raw/
 imdb_sentiment_model/
+checkpoints/
+.ipynb_checkpoints

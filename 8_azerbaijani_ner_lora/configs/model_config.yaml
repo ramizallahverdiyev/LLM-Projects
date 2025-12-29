@@ -1,0 +1,69 @@
+# -----------------------------
+# Model Configuration
+# -----------------------------
+model_name: "distilbert-base-multilingual-cased"
+num_labels: 51  # Number of NER tags
+
+# -----------------------------
+# Dataset Configuration
+# -----------------------------
+dataset_name: "LocalDoc/azerbaijani-ner-dataset"
+
+# -----------------------------
+# Labels
+# -----------------------------
+# Should match the ner_tags feature in the dataset
+label_list:
+  - "O"
+  - "B-PER"
+  - "I-PER"
+  - "B-ORG"
+  - "I-ORG"
+  - "B-LOC"
+  - "I-LOC"
+  - "B-PRO"
+  - "I-PRO"
+  - "B-EVT"
+  - "I-EVT"
+  - "B-DRV"
+  - "I-DRV"
+  - "B-DAT"
+  - "I-DAT"
+  - "B-TIM"
+  - "I-TIM"
+  - "B-MON"
+  - "I-MON"
+  - "B-PCT"
+  - "I-PCT"
+  - "B-WEA"
+  - "I-WEA"
+  - "B-FAC"
+  - "I-FAC"
+  - "B-LAN"
+  - "I-LAN"
+  - "B-LAW"
+  - "I-LAW"
+  - "B-ART"
+  - "I-ART"
+  - "B-GPE"
+  - "I-GPE"
+  - "B-NOR"
+  - "I-NOR"
+  - "B-ORD"
+  - "I-ORD"
+  - "B-CAR"
+  - "I-CAR"
+  - "B-DIS"
+  - "I-DIS"
+  - "B-CON"
+  - "I-CON"
+  - "B-ADG"
+  - "I-ADG"
+  - "B-QTY"
+  - "I-QTY"
+  - "B-MIS"
+  - "I-MIS"
+  - "B-POS"
+  - "I-POS"
+  - "B-PRJ"
+  - "I-PRJ"

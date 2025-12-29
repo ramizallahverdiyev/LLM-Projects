@@ -1,0 +1,9 @@
+# -----------------------------
+# Inference Configuration
+# -----------------------------
+# Path to the fine-tuned model checkpoint
+model_path: "experiments/run_001/checkpoints/best_model"
+tokenizer_path: "experiments/run_001/checkpoints/best_model"
+
+# Device: "cuda", "cpu"
+device: "cuda"
