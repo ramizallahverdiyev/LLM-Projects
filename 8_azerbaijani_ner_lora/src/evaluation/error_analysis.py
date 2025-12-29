@@ -1,8 +1,5 @@
 from collections import Counter
 
-# =====================================
-# 1. Analyze errors
-# =====================================
 def analyze_errors(predictions, references, id2label):
     """
     Analyze False Positives, False Negatives, and rare entity performance.
@@ -23,9 +20,6 @@ def analyze_errors(predictions, references, id2label):
 
     return {"false_positives": dict(fp_counter), "false_negatives": dict(fn_counter)}
 
-# =====================================
-# Example usage
-# =====================================
 if __name__ == "__main__":
     id2label = {0:"O",1:"PERSON",2:"LOCATION"}
     preds = [[0,1,0],[2,0,0]]
