@@ -27,3 +27,4 @@ pytest
 
 # Requirements for the eighth project
 peft
+evaluate
