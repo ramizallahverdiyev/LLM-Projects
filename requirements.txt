@@ -24,3 +24,6 @@ hf_xet
 # Requirements for the seventh project
 ollama
 pytest
+
+# Requirements for the eighth project
+peft
