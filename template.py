@@ -156,31 +156,96 @@ import os
 # }
 
 # TEMPLATE FOR SEVENTH PROJECT STRUCTURE
-PROJECT_NAME = "7_calculator_agent"
+# PROJECT_NAME = "7_calculator_agent"
 
+# STRUCTURE = {
+#     "": [
+#         "README.md",      # Project overview and documentation
+#         "main.py",        # Main entry point for the agent
+#     ],
+#     "src": [
+#         "agent.py",           # LLM controller
+#         "intent_detector.py", # Decide if tool needed
+#         "interpreter.py",     # Tool output → human-readable
+        
+#     ],
+    
+#     "src/tools": [
+#         "calculator.py",     # Calculator tool implementation
+#     ],
+#     "prompts": [
+#         "intent_prompt.txt",      # Prompt for intent detection
+#         "interpret_prompt.txt",   # Prompt for interpreting tool output
+#     ],
+#     "tests": [
+#         "test_calculator.py",     # Tests for the calculator tool
+#         "test_intent.py",         # Tests for the intent detection
+#         "test_agent.py",          # Tests for the agent
+#     ],
+# }
+
+
+PROJECT_NAME = "8_azerbaijani_ner_lora"
+
+# STRUCTURE TEMPLATE
 STRUCTURE = {
     "": [
-        "README.md",      # Project overview and documentation
-        "main.py",        # Main entry point for the agent
+        "README.md",             # Project overview and documentation
+        "requirements.txt",      # Required libraries
+    ],
+    "configs": [
+        "model_config.yaml",     # Base model + LoRA params
+        "training_config.yaml",  # Batch size, optimizer, epochs
+        "inference_config.yaml", # Inference params
+    ],
+    "data/raw": [
+        "az_ner_dataset.csv",    # Raw CSV dataset
+    ],
+    "data/processed": [],
+    "data/splits": [],
+    "notebooks": [
+        "eda.ipynb",             # Exploratory data analysis
     ],
     "src": [
-        "agent.py",           # LLM controller
-        "intent_detector.py", # Decide if tool needed
-        "interpreter.py",     # Tool output → human-readable
-        
+        "__init__.py",
     ],
-    
-    "src/tools": [
-        "calculator.py",     # Calculator tool implementation
+    "src/data": [
+        "__init__.py",
+        "dataset_loader.py",     # HuggingFace dataset loader
+        "preprocessing.py",      # Tokenization & label alignment
     ],
-    "prompts": [
-        "intent_prompt.txt",      # Prompt for intent detection
-        "interpret_prompt.txt",   # Prompt for interpreting tool output
+    "src/model": [
+        "__init__.py",
+        "model_builder.py",      # Base model + LoRA adapter
+        "trainer.py",            # Training loop + evaluation
     ],
-    "tests": [
-        "test_calculator.py",     # Tests for the calculator tool
-        "test_intent.py",         # Tests for the intent detection
-        "test_agent.py",          # Tests for the agent
+    "src/evaluation": [
+        "__init__.py",
+        "metrics.py",            # Precision, recall, F1
+        "error_analysis.py",     # FP/FN/boundary/type errors
+    ],
+    "src/inference": [
+        "__init__.py",
+        "predict.py",            # Inference + reconstruction
+    ],
+    "src/utils": [
+        "__init__.py",
+        "logging.py",
+        "helpers.py",
+    ],
+    "experiments/run_001/checkpoints": [],
+    "experiments/run_001/logs": [],
+    "scripts": [
+        "train.py",
+        "eval.py",
+        "predict.py",
+    ],
+    "deployment/api": [
+        "app.py",
+        "requirements.txt",
+    ],
+    "deployment/docker": [
+        "Dockerfile",
     ],
 }
 
