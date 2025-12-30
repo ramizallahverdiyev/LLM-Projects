@@ -31,7 +31,7 @@ evaluate
 fastapi
 uvicorn
 
-# Requirements for the ninhth project
+# Requirements for the 9th project
 dash
 dash-bootstrap-components
 pandas
