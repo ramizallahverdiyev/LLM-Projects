@@ -185,71 +185,107 @@ import os
 # }
 
 
-PROJECT_NAME = "8_azerbaijani_ner_lora"
+# PROJECT_NAME = "8_azerbaijani_ner_lora"
+
+# # STRUCTURE TEMPLATE
+# STRUCTURE = {
+#     "": [
+#         "README.md",             # Project overview and documentation
+#         "requirements.txt",      # Required libraries
+#         "main.py"
+#     ],
+#     "configs": [
+#         "model_config.yaml",     # Base model + LoRA params
+#         "training_config.yaml",  # Batch size, optimizer, epochs
+#         "inference_config.yaml", # Inference params
+#     ],
+#     "data/raw": [
+#         "az_ner_dataset.csv",    # Raw CSV dataset
+#     ],
+#     "data/processed": [],
+#     "data/splits": [],
+#     "notebooks": [
+#         "eda.ipynb",             # Exploratory data analysis
+#     ],
+#     "src": [
+#         "__init__.py",
+#     ],
+#     "src/data": [
+#         "__init__.py",
+#         "dataset_loader.py",     # HuggingFace dataset loader
+#         "preprocessing.py",      # Tokenization & label alignment
+#     ],
+#     "src/model": [
+#         "__init__.py",
+#         "model_builder.py",      # Base model + LoRA adapter
+#         "trainer.py",            # Training loop + evaluation
+#     ],
+#     "src/evaluation": [
+#         "__init__.py",
+#         "metrics.py",            # Precision, recall, F1
+#         "error_analysis.py",     # FP/FN/boundary/type errors
+#     ],
+#     "src/inference": [
+#         "__init__.py",
+#         "predict.py",            # Inference + reconstruction
+#     ],
+#     "src/utils": [
+#         "__init__.py",
+#         "logging.py",
+#         "helpers.py",
+#     ],
+#     "experiments/run_001/checkpoints": [],
+#     "experiments/run_001/logs": [],
+#     "scripts": [
+#         "train.py",
+#         "eval.py",
+#         "predict.py",
+#     ],
+#     "deployment/api": [
+#         "app.py",
+#         "requirements.txt",
+#     ],
+#     "deployment/docker": [
+#         "Dockerfile",
+#     ],
+# }
+
+
+
+PROJECT_NAME = "9_prompt_evaluation_dashboard"
 
 # STRUCTURE TEMPLATE
 STRUCTURE = {
     "": [
-        "README.md",             # Project overview and documentation
-        "requirements.txt",      # Required libraries
-        "main.py"
+        "README.md",                 # Project overview, setup, usage
+        "requirements.txt",          # Python dependencies
     ],
-    "configs": [
-        "model_config.yaml",     # Base model + LoRA params
-        "training_config.yaml",  # Batch size, optimizer, epochs
-        "inference_config.yaml", # Inference params
+
+    "data": [
+        "squad-train-v2.0.json"
     ],
-    "data/raw": [
-        "az_ner_dataset.csv",    # Raw CSV dataset
+
+    "prompts": [
+        "prompts.json",              # prompt_id, text, version, description
     ],
-    "data/processed": [],
-    "data/splits": [],
-    "notebooks": [
-        "eda.ipynb",             # Exploratory data analysis
+
+    "models": [],
+
+    "models/llama_local": [
+        # Local LLaMA model files (weights, tokenizer, config)
     ],
+
     "src": [
-        "__init__.py",
+        "run_model.py",              # Prompt + input → LLaMA output
+        "evaluate.py",               # Automatic evaluation logic
+        "storage.py",                # Store outputs, metadata, scores
+        "dashboard.py",              # Streamlit / Plotly dashboard
     ],
-    "src/data": [
-        "__init__.py",
-        "dataset_loader.py",     # HuggingFace dataset loader
-        "preprocessing.py",      # Tokenization & label alignment
-    ],
-    "src/model": [
-        "__init__.py",
-        "model_builder.py",      # Base model + LoRA adapter
-        "trainer.py",            # Training loop + evaluation
-    ],
-    "src/evaluation": [
-        "__init__.py",
-        "metrics.py",            # Precision, recall, F1
-        "error_analysis.py",     # FP/FN/boundary/type errors
-    ],
-    "src/inference": [
-        "__init__.py",
-        "predict.py",            # Inference + reconstruction
-    ],
-    "src/utils": [
-        "__init__.py",
-        "logging.py",
-        "helpers.py",
-    ],
-    "experiments/run_001/checkpoints": [],
-    "experiments/run_001/logs": [],
-    "scripts": [
-        "train.py",
-        "eval.py",
-        "predict.py",
-    ],
-    "deployment/api": [
-        "app.py",
-        "requirements.txt",
-    ],
-    "deployment/docker": [
-        "Dockerfile",
+
+    "notebooks": [
+        "exploration.ipynb",         # Prototyping, testing, metric analysis
     ],
 }
-
 def create_structure(base_path: str):
     for folder, files in STRUCTURE.items():
         folder_path = os.path.join(base_path, folder)
