@@ -30,3 +30,10 @@ peft
 evaluate
 fastapi
 uvicorn
+
+# Requirements for the ninhth project
+dash
+dash-bootstrap-components
+pandas
+gunicorn
+requests
