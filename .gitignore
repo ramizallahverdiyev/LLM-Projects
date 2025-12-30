@@ -29,4 +29,4 @@ raw/
 imdb_sentiment_model/
 checkpoints/
 .ipynb_checkpoints
-squad-train-v.2.0.json
+squad-train-v2.0.json

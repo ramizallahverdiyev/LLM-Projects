@@ -1,0 +1,10 @@
+[
+    {
+        "id": "prompt-1",
+        "text": "What is the capital of France?"
+    },
+    {
+        "id": "prompt-2",
+        "text": "Summarize the following text: {text}"
+    }
+]
