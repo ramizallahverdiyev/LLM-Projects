@@ -1,0 +1,12 @@
+.prompt-dropdown-styling .Select-menu-outer {
+    background-color: black !important;
+}
+
+.prompt-dropdown-styling .Select-menu-outer .Select-option {
+    background-color: black !important;
+    color: white !important;
+}
+
+.prompt-dropdown-styling .Select-menu-outer .Select-option.is-focused {
+    background-color: #333 !important; /* A slightly lighter black for hover/focus */
+}
