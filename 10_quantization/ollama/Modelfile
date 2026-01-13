@@ -1,0 +1,18 @@
+FROM ../models/quantized/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf
+
+# Set the temperature for more creative responses (lower for more focused)
+PARAMETER temperature 0.7
+
+# Set the maximum number of tokens to generate
+PARAMETER num_predict 256
+
+# Set the top-k sampling (reduces the number of possible next tokens)
+PARAMETER top_k 40
+
+# Set the top-p sampling (reduces the number of possible next tokens)
+PARAMETER top_p 0.9
+
+# A system message to guide the model's behavior
+SYSTEM """
+You are a helpful and harmless AI assistant.
+"""
