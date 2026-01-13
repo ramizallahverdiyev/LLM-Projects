@@ -10,7 +10,6 @@ def download_model():
     model_id = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
     
     # The directory where the model will be saved.
-    # We save it in the 'models/base' directory, which is at the root of the project.
     script_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     model_dir = os.path.join(script_dir, "models", "base")
     
@@ -24,7 +23,7 @@ def download_model():
         repo_id=model_id,
         local_dir=model_dir,
         local_dir_use_symlinks=False,  # Set to False on Windows
-        ignore_patterns=["*.safetensors"],  # We want the pytorch .bin files
+        ignore_patterns=["*.safetensors"],
     )
 
     print("Model download complete.")

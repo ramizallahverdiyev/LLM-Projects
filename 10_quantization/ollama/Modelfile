@@ -1,18 +1,40 @@
-FROM ../models/quantized/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf
+# Ollama Modelfile for a Custom GGUF Model
+#
+# This Modelfile defines how Ollama should run a custom quantized model.
+# It specifies the base model to use (the GGUF file), sets parameters
+# for the model's behavior, and defines the prompt template.
+#
+# Usage:
+# 1. Place your quantized GGUF model in the same directory as this Modelfile.
+# 2. Run the command:
+#    ollama create -f Modelfile <your-model-name>
+#
+# Replace the placeholder values below with your specific model details.
 
-# Set the temperature for more creative responses (lower for more focused)
-PARAMETER temperature 0.7
+# 1. Base Model Path
+# Specifies the path to the GGUF model file. Ollama will look for this
+# file in the same directory as the Modelfile.
+# IMPORTANT: Update "your-quantized-model.gguf" to your actual .gguf file name.
+FROM ./your-quantized-model.gguf
 
-# Set the maximum number of tokens to generate
-PARAMETER num_predict 256
+# 2. Model Parameters
+# These parameters control the behavior of the model during inference.
+# They can be adjusted to influence the generation process.
+PARAMETER stop "<|im_start|>"
+PARAMETER stop "<|im_end|>"
+PARAMETER stop "</s>"
 
-# Set the top-k sampling (reduces the number of possible next tokens)
-PARAMETER top_k 40
-
-# Set the top-p sampling (reduces the number of possible next tokens)
-PARAMETER top_p 0.9
-
-# A system message to guide the model's behavior
-SYSTEM """
-You are a helpful and harmless AI assistant.
+# 3. Prompt Template
+# This is crucial for ensuring the model responds correctly. The template
+# formats the user's prompt into the structure the model was trained on.
+# This example uses the ChatML template, common for many modern models.
+# Make sure this matches the prompt format of your base model.
+TEMPLATE """
+<|im_start|>system
+You are a helpful AI assistant.
+<|im_end|>
+<|im_start|>user
+{{ .Prompt }}
+<|im_end|>
+<|im_start|>assistant
 """

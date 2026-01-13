@@ -1,65 +1,75 @@
-# Running Quantized Models with Ollama
+# How to Run a Custom GGUF Model with Ollama
 
-This guide explains how to integrate and run the quantized GGUF models from this project using Ollama. Ollama provides a simple and powerful way to run large language models locally.
+This guide provides the steps to serve your own quantized GGUF model using Ollama.
 
-## 1. Install Ollama
+## Prerequisites
 
-If you don't have Ollama installed, download and install it from the official website:
-[https://ollama.com/download](https://ollama.com/download)
+1.  **Ollama Installed**: Ensure Ollama is installed on your system. Visit the [Ollama website](https://ollama.com/) for installation instructions.
+2.  **Quantized GGUF Model**: You must have a GGUF model file (e.g., `q4_k_m-model.gguf`) located in the `models/quantized/` directory.
+3.  **Modelfile**: A `Modelfile` must be present in the `ollama/` directory, correctly configured to point to your GGUF file.
 
-Follow the instructions for your operating system.
+## Step 1: Copy the Model and Modelfile
 
-## 2. Prepare Your Quantized Model
+Ollama needs the GGUF model file and the `Modelfile` to be in the same directory when creating a new model.
 
-Before proceeding, ensure you have:
-- Downloaded the base model using `python scripts/download_model.py`
-- Converted the model to GGUF format using `python scripts/convert_to_gguf.py`
-- Quantized the model using `python scripts/quantize_model.py`
+1.  Navigate to the `ollama/` directory in your terminal.
+2.  Copy your GGUF model from `../models/quantized/` into the current (`ollama/`) directory. For example:
 
-This will ensure you have the `tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf` file (or other quantized versions) in the `models/quantized/` directory.
+    ```bash
+    # Make sure you are in the 'ollama' directory
+    cp ../models/quantized/Q4_K_M-model.gguf ./
+    ```
 
-## 3. Create a Custom Ollama Model
+## Step 2: Update the `Modelfile`
 
-Ollama uses `Modelfile`s to define custom models. We have a `Modelfile` prepared for you in the `ollama/` directory.
+Open the `Modelfile` in the `ollama/` directory and ensure the `FROM` instruction points to the correct GGUF file name you just copied.
 
-Navigate to the project's root directory in your terminal and then into the `ollama` directory:
+**Example `Modelfile`:**
+
+```modelfile
+# Point to the GGUF file you copied into this directory
+FROM ./Q4_K_M-model.gguf
+
+# Parameters and template...
+PARAMETER stop "</s>"
+TEMPLATE """
+<|im_start|>system
+You are a helpful assistant.
+<|im_end|>
+<|im_start|>user
+{{ .Prompt }}
+<|im_end|>
+<|im_start|>assistant
+"""
+```
+
+## Step 3: Create the Ollama Model
+
+Use the `ollama create` command to build the model from your `Modelfile`. This packages your GGUF file into an Ollama-managed model.
+
+-   `-f Modelfile`: Specifies the Modelfile to use.
+-   `<your-model-name>`: The custom name you want to give your model (e.g., `my-custom-model:q4`).
 
 ```bash
-cd ollama
+ollama create -f Modelfile my-custom-model:q4
 ```
 
-Now, create the Ollama model using the `Modelfile`:
+Ollama will process the file and create the model. On success, you will see a "success" message.
+
+## Step 4: Run the Model
+
+Once created, you can run your model just like any other Ollama model using `ollama run`.
 
 ```bash
-ollama create tinyllama-quantized -f Modelfile
+ollama run my-custom-model:q4
 ```
 
-This command tells Ollama to create a new model named `tinyllama-quantized` using the configuration and GGUF file specified in the `Modelfile`.
+You can now interact with your custom quantized model directly in the terminal.
 
-## 4. Run the Custom Ollama Model
+## Step 5: (Optional) Clean Up
 
-Once the model is created, you can run it directly:
+You can remove the GGUF file you copied into the `ollama/` directory to save space. Ollama now manages its own copy.
 
 ```bash
-ollama run tinyllama-quantized
-```
-
-You can then start interacting with the model in your terminal. For example:
-
-```
->>> How are you?
-```
-
-To exit the model interaction, type `/bye` or press `Ctrl+D`.
-
-## 5. Explore Other Quantized Versions
-
-You can create different `Modelfile`s pointing to `tinyllama-1.1b-chat-v1.0.Q8_0.gguf` or other quantized versions to compare their performance and quality. Just update the `FROM` line in the `Modelfile` to point to the desired GGUF file, and then create a new Ollama model with a different name.
-
-## 6. Remove the Custom Ollama Model
-
-If you wish to remove the model from Ollama, use the `rm` command:
-
-```bash
-ollama rm tinyllama-quantized
+rm ./Q4_K_M-model.gguf
 ```

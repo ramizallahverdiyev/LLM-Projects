@@ -16,7 +16,6 @@ def convert_model_to_gguf():
     os.makedirs(output_dir, exist_ok=True)
     
     # The path for the output GGUF file.
-    # We are converting to FP16, so we'll name it accordingly.
     output_path = os.path.join(output_dir, "tinyllama-1.1b-chat-v1.0.F16.gguf")
 
     print(f"Converting model from {model_dir} to GGUF...")
