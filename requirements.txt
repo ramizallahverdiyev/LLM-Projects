@@ -37,3 +37,9 @@ dash-bootstrap-components
 pandas
 gunicorn
 requests
+
+# Requirements for the 10th project
+huggingface_hub
+torch
+transformers
+llama-cpp-python
